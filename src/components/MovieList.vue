@@ -1,5 +1,5 @@
 <template>
-<BContainer>
+<BContainer class="movie-list">
     <h3 class="list-title">{{title}}</h3>
     <BRow>
     <template v-if="getMoviesArray.length">
@@ -8,7 +8,7 @@
     </BCol>
     </template>
     <template v-else>
-    No film
+  <span class="noResult">  No film found</span>
     </template>
     </BRow>
 </BContainer>
@@ -37,5 +37,16 @@ export default {
 .list-title{
 font-size: 50px;
 margin-bottom: 30px;
+}
+.movie-list{
+height: 100vh;
+}
+.noResult{
+  font-size: 30px;
+  margin-top: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 </style>

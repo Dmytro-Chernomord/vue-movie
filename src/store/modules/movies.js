@@ -47,7 +47,9 @@ export default {
         console.log('query', query)
         const promise = await axios.get(`/?s=${query}`).then(res => res.data)
         console.log(promise.Search)
-        commit('setStateMoviesArray', promise.Search)
+        if (promise.Search) {
+          commit('setStateMoviesArray', promise.Search)
+        } else commit('setStateMoviesArray', [])
       } catch (error) {
         console.log(error)
       } finally {}

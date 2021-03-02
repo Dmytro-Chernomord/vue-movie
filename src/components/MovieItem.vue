@@ -33,14 +33,16 @@ export default {
   },
   methods: {
     ...mapActions('movies', ['deleteMovie']),
-    ...mapActions(['setModalContent', 'setModal']),
+    ...mapActions(['setModalContent', 'setModal', 'setLoader']),
     async onConfirm (id, title = 'this Film') {
       const isConfirm = await this.$bvModal.msgBoxConfirm(`Are you sure want delete ${title} ?`)
       console.log(id, title, isConfirm)
       this.deleteMovie(id)
     },
     async showModal (id) {
+      this.setLoader(true)
       await this.setModalContent(id)
+      this.setLoader(false)
       this.setModal(true)
       // this.$bvModal.show('info-modal')
     }

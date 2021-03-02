@@ -32,9 +32,9 @@ export default {
       },
       set (value) {
         this.setModal(value)
-        setTimeout(() => {
-          this.setModalContent(null)
-        }, 500)
+        // setTimeout(() => {
+        //   this.setModalContent(null)
+        // }, 500)
         // this.setModalContent(null)
       }
     },
@@ -45,7 +45,11 @@ export default {
   methods: {
     ...mapActions(['setModal', 'setModalContent'])
 
+  },
+  destroyed () {
+    this.setModalContent(null)
   }
+
 }
 </script>
 
